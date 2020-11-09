@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户列表</title>
+  <style>
+    /* table样式 设置表格： */
+    ._table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 0px;
+      box-shadow: 0px 0px 5px #8e8b8b;
+    }
+
+    /* 设置表头：  */
+    ._table thead tr {
+      font-size: 13px;
+      color: #fbfbff;
+      text-align: center;
+      background-color: rgb(118 120 123 / 92%);
+      font-weight: bold;
+    }
+
+    /* 设置列：  */
+    ._table td {
+      line-height: 20px;
+      text-align: center;
+      padding: 4px 10px 3px 10px;
+      height: 18px;
+      border: 0px solid #ffffff;
+    }
+
+    /* 设置行背景（斑马纹效果） */
+    ._table tbody tr {
+      background: #fff;
+      font-size: 13px;
+      color: #393939;
+    }
+
+    ._table tbody tr:nth-child(2n) {
+      background: #f3f3f3;
+    }
+
+    .btn {
+      color: #1980ff;
+    }
+
+    .btn:hover {
+      cursor: pointer;
+    }
+
+    .btn.danger {
+      color: red;
+    }
+
+    .disable {
+      color: red;
+      font-weight: bold;
+    }
+
+    .enable {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <p>字符串模版+模版引擎+ajax 处理数据局部刷新</p>
+  <a class="btn" href="/session/page/user/add">新增</a>
+  <table class="_table" id="table">
+    <thead>
+      <tr>
+        <th>lastName</th>
+        <th>firstName</th>
+        <th>email</th>
+        <th>更新时间</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tableContent">
+
+      <% for(var i=0; i< users.length; i++) {%>
+      <tr>
+        <% if(users[i].lastName!==null) { %>
+        <td><%=users[i].lastName%></td>
+        <% } else { %>
+        <td>---</td>
+        <% } %>
+        <% if(users[i].firstName!==null) { %>
+        <td><%=users[i].firstName%></td>
+        <% } else { %>
+        <td>---</td>
+        <% } %>
+        <td><%=users[i].email%></td>
+        <td><%=users[i].updatedAt%></td>
+
+        <% if(users[i].destroyTime) { %>
+        <td class="disable"> 停用</td>
+
+        <% } else { %>
+        <td class="enable"> 启用</td>
+        <% } %>
+        </td>
+        <td>
+          <a class="btn">编辑</a>
+          <!-- <a class="btn danger">删除</a> -->
+          <a class="btn" data-user='<%= JSON.stringify(users[i]) %>' onclick="handleEnable(this)">启/停用</a>
+        </td>
+      </tr>
+      <%} %>
+    </tbody>
+  </table>
+  <script src="/js/ajax.js"></script>
+  <!-- 刷新 -->
+  <script>
+    function handleRefresh() {
+      // dom更新
+      request({
+        url: '/session/view/users/data',
+        method: 'GET',
+        data: {},
+        success: function (res) {
+          if (res) {
+            const tableContent = document.getElementById("tableContent")
+            const table = document.getElementById("table")
+            let tpl = `<tbody id="tableContent">
+            <thead>
+              <tr>
+                <th>lastName</th>
+                <th>firstName</th>
+                <th>email</th>
+                <th>更新时间</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>`;
+            const data = res.data
+            for (let i = 0; i < (data || []).length; i++) {
+              tpl += `
+                <tr>
+                  <td>${data[i].lastName ? data[i].lastName : '---'}</td>
+                  <td>${data[i].firstName ? data[i].firstName : '---'}</td>
+                  <td>${data[i].email}</td>
+                  <td>${data[i].updatedAt}</td>
+                  ${data[i].destroyTime ? '<td class="disable"> 停用</td> ' : '<td class="enable"> 启用</td>'}
+                  <td> <a class="btn">编辑</a> <a class="btn" data-user=${JSON.stringify(data[i])}  onclick="handleEnable(this)">启/停用</a></td>
+                </tr>
+                `
+            }
+            tpl += "</tbody>"
+            table.removeChild(tableContent);
+            table.innerHTML = tpl
+          }
+        },
+        error: function (err) {
+          console.log(err)
+        }
+      })
+    }
+    const handleEnable = (e) => {
+      const user = JSON.parse(e.dataset.user)
+      request({
+        url: '/session/view/users/enable',
+        method: 'POST',
+        data: JSON.stringify({ id: user.id, status: user.destroyTime ? 1 : 0 }),
+        success: function (res) {
+          if (res) {
+            console.log(res)
+            window.handleRefresh()
+          }
+        },
+        error: function (err) {
+          console.log(err)
+        }
+      })
+    }
+    window.onload = function () {
+      // window.handleRefresh()
+    }
+  </script>
+</body>
+
+</html>

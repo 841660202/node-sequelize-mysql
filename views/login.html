@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <style>
+    .tang-pass-pop-login input,
+    .tang-pass-pop-login textarea,
+    .tang-pass-pop-login select {
+      font-family: inherit;
+      font-size: inherit;
+      *font-size: 100%;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      transition: none;
+      outline: 0;
+      display: block;
+      position: relative;
+      height: 20px;
+      padding: 10px 8px;
+      border: 1px solid #ddd;
+      transition: .3s;
+      font-size: 14px;
+      color: #666;
+      width: 284px;
+    }
+
+    .tang-pass-pop-login-color-blue .pass-button {
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      width: 284px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #fff;
+      background: #3f89ec;
+      border: 0;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-transition: .3s;
+      -moz-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s;
+      text-align: center;
+    }
+
+    .tang-pass-login a {
+      font-size: 12px;
+      color: rgb(46, 130, 255);
+      font-family: Tahoma, Helvetica, "Microsoft Yahei", 微软雅黑, Arial, STHeiti;
+      text-decoration: none;
+    }
+
+    .pass-form-item-submit a.pass-fgtpwd {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px;
+    }
+
+    .tang-pass-pop-login a.pass-sms-btn {
+      cursor: pointer;
+      font-size: 12px;
+      position: absolute;
+      margin-top: 12px;
+    }
+
+    .login-form {
+      margin: 0 auto;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 1px 1px 10px #c5c4c4;
+    }
+
+    p.pass-form-logo {
+      background: url("/logo.png") no-repeat left;
+      _background: url("/logo.png") no-repeat left;
+      font-size: 16px;
+      height: 32px;
+      line-height: 46px;
+      padding-left: 118px;
+      color: #000;
+      margin-top: 1px;
+      margin-bottom: 15px;
+    }
+
+    .tang-pass-pop-login .pass-generalErrorWrapper {
+      margin: 0;
+      padding: 0 0 2px;
+    }
+
+    .tang-pass-pop-login span.pass-generalError {
+      display: block;
+      min-height: 14px;
+      height: auto;
+      _height: 14px;
+      padding: 8px 0 2px;
+      line-height: 14px;
+      font-size: 12px;
+      color: #fc4343;
+    }
+
+    p {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tang-pass-pop-login ">
+    <form class="login-form" id="form1" name="myform">
+      <p class="pass-form-logo">用户名密码登录</p>
+      <p id="TANGRAM__PSP_11__errorWrapper" class="pass-generalErrorWrapper">
+        <span id="TANGRAM__PSP_11__error" class="pass-generalError pass-generalError-error"></span>
+      </p>
+      <p class="tang-pass-pop-login"><input type="text" name="email" placeholder="账号" /> </p>
+      <p class="tang-pass-pop-login"><input type="password" name="password" placeholder="密码" /> </p>
+      <p class="tang-pass-pop-login"><input type="text" name="waitTime" placeholder="延迟效果(1000+)" /> </p>
+      <p class="tang-pass-pop-login pass-form-item-submit  tang-pass-pop-login-color-blue ">
+        <input class="pass-button" id="loginBtn" type="button" value="登录" onclick="login()" />
+        <a class="pass-fgtpwd pass-link">忘记密码？</a>
+        <a class="pass-sms-btn pass-link" title="短信快捷登录" data-type="sms"
+          id="TANGRAM__PSP_11__smsSwitchWrapper">短信快捷登录</a>
+      </p>
+    </form>
+    <pre id="msg"></pre>
+  </div>
+
+
+  <script src="/js/ajax.js"></script>
+  <script>
+    function login() {
+      const waitTime = document.myform.waitTime.value
+      const data = {
+        email: document.myform.email.value,
+        password: document.myform.password.value,
+        waitTime
+      }
+      if (!data.email) {
+        document.getElementById("TANGRAM__PSP_11__error").innerHTML = "请输入账号"
+        return
+      }
+      if (!data.password) {
+        document.getElementById("TANGRAM__PSP_11__error").innerHTML = "请输入密码"
+        return
+      }
+      document.getElementById("TANGRAM__PSP_11__error").innerHTML = ""
+
+      const tip = "登录中。。。"
+      if (document.getElementById("loginBtn").value === tip) {
+        return
+      }
+      const loginBtn = document.getElementById("loginBtn")
+      loginBtn.value = tip;
+      loginBtn.style.opacity = 0.5
+
+      request({
+        url: '/session/loginAction',
+        method: 'POST',
+        data: JSON.stringify(data),
+        success: function (res) {
+          console.log(res)
+          loginBtn.value = "登录";
+          loginBtn.style.opacity = 1
+          if (res) {
+            document.getElementById("msg").innerHTML = "延迟" + waitTime + "ms返回内容," + waitTime + "ms 后提示消失，<br/>" + JSON.stringify(res, "null", 5)
+            setTimeout(function () {
+              document.getElementById("msg").innerHTML = ''
+            }, waitTime)
+            window.location = "/session/page/users"
+          }
+        },
+        error: function (err) {
+          loginBtn.value = "登录";
+          loginBtn.style.opacity = 1
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>

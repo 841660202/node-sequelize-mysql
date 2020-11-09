@@ -1,0 +1,32 @@
+{
+  "name": "sequelize",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "gen:logo": "cd ./public && svgexport ./logo.svg ./logo.png 128:"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.9.4",
+    "ejs": "^3.1.5",
+    "glob": "^7.1.6",
+    "ioredis": "^4.19.2",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^9.4.0",
+    "koa-session2": "^2.2.10",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.3.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.15",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

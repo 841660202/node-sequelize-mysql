@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户列表</title>
+  
+</head>
+
+<body>
+  <p>字符串模版处理数据局部刷新</p>
+  <a class="btn" href="">新增</a>
+  
+  <script src="/js/ajax.js"></script>
+  <script>
+  </script>
+  <!-- 刷新 -->
+  <script>
+    const handleEnable = (e) => {
+      const user = JSON.parse(e.dataset.user)
+      request({
+        url: '/session/view/users/enable',
+        method: 'POST',
+        data: JSON.stringify({ id: user.id, status: user.destroyTime ? 1 : 0 }),
+        success: function (res) {
+          if (res) {
+            console.log(res)
+            window.handleRefresh()
+          }
+        },
+        error: function (err) {
+          console.log(err)
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>

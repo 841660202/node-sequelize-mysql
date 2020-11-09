@@ -1,0 +1,49 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "nodemon",
+      "program": "${workspaceFolder}/app.js",
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "基本运行",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/app.js"
+    }
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "nodemon运行",
+    //   "runtimeExecutable": "nodemon",
+    //   // "args": ["${workspaceRoot}/bin/www"],
+    //   "restart": true,
+    //   // "protocol": "inspector", //相当于--inspect了
+    //   // "sourceMaps": true,
+    //   "console": "integratedTerminal",
+    //   "internalConsoleOptions": "neverOpen",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/app.js",
+    //   // "runtimeArgs": [
+    //   //   //对应nodemon --inspect之后除了启动文件之外的其他配置
+    //   //   "--exec",
+    //   //   "babel-node",
+    //   //   "--presets",
+    //   //   "env"
+    //   // ]
+    // }
+  ]
+}

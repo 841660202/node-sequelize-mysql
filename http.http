@@ -1,0 +1,101 @@
+
+@hostname = http://localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+@modifiedBy = {{$processEnv USERNAME}}
+###
+GET {{host}}/role/map1 HTTP/1.1
+
+### 增
+POST {{host}}/role/save HTTP/1.1
+content-type: application/json
+
+{
+    "roleName": null
+}
+### 软删除
+POST {{host}}/role/del/soft HTTP/1.1
+content-type: application/json
+
+{
+    "roleName": 1
+}
+###
+POST {{host}}/role/save/withPoints HTTP/1.1
+content-type: application/json
+
+{
+}
+###
+# 角色id
+# 角色名称
+# 角色关联的权限点
+POST {{host}}/role/update/withPoints HTTP/1.1
+content-type: application/json
+
+{
+  "data": {
+    "id": 24,
+    "roleName": "管理员22",
+    "pointIds": [5, 6, 7]
+  }
+}
+### user
+POST {{host}}/user/disable HTTP/1.1
+content-type: application/json
+
+{
+  "data": {
+    "id": 1,
+    "enable":0
+  }
+}
+### user enable: 0停用 1启用
+GET {{host}}/user/all?enable=0 HTTP/1.1
+
+### user enable: 0停用 1启用 null 全部
+GET {{host}}/user/all/by?enable=0 HTTP/1.1 
+
+### mail
+POST {{host}}/mail/send HTTP/1.1 
+content-type: application/json
+
+{
+  "data": {
+    "to": "841660202@qq.com",
+    "subject":"你的邮件码",
+    "text":"bynifwnjdqhgbeeh"
+  }
+}
+
+### mail-html
+POST {{host}}/mail/send/html HTTP/1.1 
+content-type: application/json
+
+{
+  "data": {
+    "to": "841660202@qq.com",
+    "subject":"你的邮件码",
+    "text":"bynifwnjdqhgbeeh",
+    "code": "123456"
+  }
+}
+### cookie set
+GET {{host}}/cookie/set HTTP/1.1 
+
+### cookie get
+GET {{host}}/cookie/get HTTP/1.1 
+
+### session set
+POST {{host}}/session/login HTTP/1.1 
+content-type: application/json
+
+{
+  "email": "jack@demo.com"
+}
+
+### session get
+GET {{host}}/session/get HTTP/1.1 
+

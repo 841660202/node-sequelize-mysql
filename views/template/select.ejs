@@ -1,0 +1,205 @@
+<style>
+  /* 公共样式 */
+  *,
+  body {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  /* 模拟下拉框 */
+  .select-box {
+    position: relative;
+    /* margin: 50px 0 0 100px; */
+  }
+
+  .select-box .select-input {
+    line-height: 20px;
+    border: 1px solid #d6d6d6;
+    cursor: pointer;
+    height: 42px;
+    outline: none;
+    text-indent: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    /* color: rgba(187, 187, 187, 1); */
+    color: rgba(34, 34, 34, 1);
+    line-height: 22px;
+    margin: 0;
+    /* background: rgba(247, 247, 247, 0.661); */
+    background-size: 20px 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  /** input placeholder颜色改变 **/
+  .select-box .select-input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: rgba(187, 187, 187, 1);
+  }
+
+  .select-box .select-input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: rgba(187, 187, 187, 1);
+  }
+
+  .select-box .select-input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: rgba(187, 187, 187, 1);
+  }
+
+  .select-box .select-input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: rgba(187, 187, 187, 1);
+  }
+
+  .select-box .select-input.isActive {
+    background-color: #ffffff;
+    border: 1px solid rgba(204, 204, 204, 1);
+    background-image: url(./static/imgs/arrow-up.png);
+  }
+
+  .select-box .options-box {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 170px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 170px;
+    height: 225px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    z-index: 999;
+
+  }
+
+  .select-box .options-box li {
+    width: 170px;
+    height: 45px;
+    text-indent: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(34, 34, 34, 1);
+    line-height: 45px;
+    background: rgba(255, 255, 255, 1);
+  }
+
+  .select-box .options-box li.active {
+    background-color: rgba(247, 247, 247, 1);
+    color: rgba(2, 176, 159, 1)
+  }
+</style>
+<div class="select-box">
+  <input type="text" class="select-input" style="width: 100%;" value="" name='<%=id %>' readonly placeholder="角色" />
+  <ul class="options-box hide">
+    <% for (let i =0; i < data.length;i++) {%>
+      <li value='<%= data[i].id %>'><%=data[i].name%></li>
+    <% } %>
+  </ul>
+</div>
+<script>
+  window.onload = function () {
+    // 判断是否有某个class
+    function hasClass(ele, cls) {
+      return ele.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
+    }
+    // //为指定的dom元素添加样式
+    function addClass(ele, cls) {
+      if (!hasClass(ele, cls)) ele.className += " " + cls;
+    }
+    // //删除指定dom元素的样式
+    function removeClass(ele, cls) {
+      if (hasClass(ele, cls)) {
+        var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+        ele.className = ele.className.replace(reg, " ");
+      }
+    }
+    // //如果存在(不存在)，就删除(添加)一个样式
+    // function toggleClass(ele, cls) {
+    //   if (hasClass(ele, cls)) {
+    //     removeClass(ele, cls);
+    //   } else {
+    //     addClass(ele, cls);
+    //   }
+    // }
+
+    document.getElementsByClassName('select-input')[0].onclick = function () {
+      var optionsBox = document.getElementsByClassName('options-box')[0];
+      var selectInput = document.getElementsByClassName('select-input')[0];
+      // 这里最好用children，不要用childNode, 否则会有多余的text节点
+      var lis = optionsBox.children;
+      if (hasClass(optionsBox, 'hide')) { // 如果当前不是正在打开选项状态
+        removeClass(optionsBox, 'hide')
+        addClass(selectInput, 'isActive')
+        for (var i = 0; i < lis.length; i++) {
+          if (lis[i].innerHTML == selectInput.value) { // 如果之前已经选择过，将之前的选项激活状态
+            addClass(lis[i], 'active')
+          } else {
+            removeClass(lis[i], 'active')
+          }
+        }
+      } else {
+        addClass(optionsBox, 'hide');
+        removeClass(selectInput, 'isActive');
+      }
+    }
+
+    document.getElementsByClassName('options-box')[0].onclick = function (e) {
+      var optionsBox = document.getElementsByClassName('options-box')[0];
+      var selectInput = document.getElementsByClassName('select-input')[0];
+      //这一行及下一行是为兼容IE8及以下版本
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      if (target.tagName.toLowerCase() === "li") {
+        // 将选中的值赋值给展示框文本
+        selectInput.value = target.innerHTML;
+        selectInput.dataset.id = target.value;
+        console.log("target",target.value)
+        // 关闭选择列表
+        addClass(optionsBox, 'hide');
+        // 取消展示框的激活状态
+        removeClass(selectInput, 'isActive');
+      }
+    }
+
+    // 列表中选项滑过效果
+    document.getElementsByClassName('options-box')[0].onmouseover = function (e) {
+      // 事件代理
+      var optionsBox = document.getElementsByClassName('options-box')[0];
+      var selectInput = document.getElementsByClassName('select-input')[0];
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      if (target.tagName.toLowerCase() === "li") {
+        if (target.innerHTML != selectInput.value) { //如果滑过的不是已经选中的，给予暂时的滑过效果
+          addClass(target, 'active');
+        }
+      }
+    }
+
+    document.getElementsByClassName('options-box')[0].onmouseout = function (e) {
+      var optionsBox = document.getElementsByClassName('options-box')[0];
+      var selectInput = document.getElementsByClassName('select-input')[0];
+      //这一行及下一行是为兼容IE8及以下版本
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      if (target.tagName.toLowerCase() === "li") {
+        if (target.innerHTML != selectInput.value) { // 如果滑出的不是已经选中的，将滑过的效果取消
+          removeClass(target, 'active');
+        }
+      }
+    }
+  }
+
+</script>
