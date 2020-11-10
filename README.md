@@ -527,7 +527,7 @@ module.exports = RedisStore;
 
 ### `window.history.go(-1)`缓存
 
-<img src="./screen/iShot2020-11-09 14.50.30.png" width="50%">
+<img src="https://github.com/841660202/node-sequelize-mysql/tree/main/screen/iShot2020-11-09 14.50.30.png" width="50%">
 
 ### 时间格式化
 - 在routes处理返回的数据会有sequelize乱七八糟的无用信息
@@ -574,7 +574,7 @@ User.init({
 ### 字符串模版内嵌套 JSON.stringify 对于时间会出现引号错位
 
 - 数据将要被点击使用
-<img src="./screen/iShot2020-11-09 16.18.56.png" width="50%">
+<img src="https://github.com/841660202/node-sequelize-mysql/tree/main/screen/iShot2020-11-09 16.18.56.png" width="50%">
 
 ```js
 function handleRefresh() {

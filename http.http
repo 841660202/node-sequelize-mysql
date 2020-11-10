@@ -1,6 +1,6 @@
 
 @hostname = http://localhost
-@port = 3000
+@port = 3009
 @host = {{hostname}}:{{port}}
 @contentType = application/json
 @createdAt = {{$datetime iso8601}}
@@ -89,7 +89,7 @@ GET {{host}}/cookie/set HTTP/1.1
 GET {{host}}/cookie/get HTTP/1.1 
 
 ### session set
-POST {{host}}/session/login HTTP/1.1 
+POST {{host}}/session/loginAction HTTP/1.1 
 content-type: application/json
 
 {
