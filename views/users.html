@@ -140,6 +140,7 @@
             </thead>`;
             const data = res.data
             for (let i = 0; i < (data || []).length; i++) {
+              console.log(JSON.stringify(data[i]))
               tpl += `
                 <tr>
                   <td>${data[i].lastName ? data[i].lastName : '---'}</td>
@@ -147,7 +148,7 @@
                   <td>${data[i].email}</td>
                   <td>${data[i].updatedAt}</td>
                   ${data[i].destroyTime ? '<td class="disable"> 停用</td> ' : '<td class="enable"> 启用</td>'}
-                  <td> <a class="btn">编辑</a> <a class="btn" data-user=${JSON.stringify(data[i])}  onclick="handleEnable(this)">启/停用</a></td>
+                  <td> <a class="btn">编辑</a> <a class="btn" data-user='`+JSON.stringify(data[i]) +`' onclick="handleEnable(this)">启/停用</a></td>
                 </tr>
                 `
             }
@@ -162,21 +163,26 @@
       })
     }
     const handleEnable = (e) => {
-      const user = JSON.parse(e.dataset.user)
-      request({
-        url: '/session/view/users/enable',
-        method: 'POST',
-        data: JSON.stringify({ id: user.id, status: user.destroyTime ? 1 : 0 }),
-        success: function (res) {
-          if (res) {
-            console.log(res)
-            window.handleRefresh()
+      try {
+        const user = JSON.parse(e.dataset.user)
+        request({
+          url: '/session/view/users/enable',
+          method: 'POST',
+          data: JSON.stringify({ id: user.id, status: user.destroyTime ? 1 : 0 }),
+          success: function (res) {
+            if (res) {
+              console.log(res)
+              window.handleRefresh()
+            }
+          },
+          error: function (err) {
+            console.log(err)
           }
-        },
-        error: function (err) {
-          console.log(err)
-        }
-      })
+        })
+      } catch (error) {
+        console.log(error)
+      }
+
     }
     window.onload = function () {
       // window.handleRefresh()

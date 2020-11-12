@@ -30,7 +30,7 @@ async function pageFilter(ctx) {
     } else {
       console.log('login status validate fail')
       console.log(ctx.request.url)
-      ctx.redirect('/session/login')
+      ctx.redirect('/session/page/login')
       return false
     }
   }

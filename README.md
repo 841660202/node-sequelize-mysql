@@ -1,13 +1,16 @@
-### 目的：主要是为了学习node koa sequelize，或许以后用的到
-- mysql、cookie、sso(单站点登录)、redis、node、koa、nodemailer、dayjs、模版引擎（ejs、mustache）、爬虫（cheerio、Puppeteer）、断点续传、socket、token、sequelize、sequelize-cli、nodemon、vscode node调试...碎片化学了好多也好久，没整合在一起使用过，这次试试水
+### 目的：主要是为了学习 node koa sequelize，或许以后用的到
 
-- 已用： mysql、cookie、redis、node、koa、nodemailer、dayjs、ejs、sequelize-cli、sequelize、nodemon、vscode node调试
+- mysql、cookie、sso(单站点登录)、redis、node、koa、nodemailer、dayjs、模版引擎（ejs、mustache）、爬虫（cheerio、Puppeteer）、断点续传、socket、token、sequelize、sequelize-cli、nodemon、vscode node 调试...碎片化学了好多也好久，没整合在一起使用过，这次试试水
+
+- 已用： mysql、cookie、redis、node、koa、nodemailer、dayjs、ejs、sequelize-cli、sequelize、nodemon、vscode node 调试
 - 待续：爬虫、断点续传
+
 ### 项目说明
-- rotues/cookie、rotues/mail、rotues/role、rotues/user基本上都是接口
-- rotues/session 接口+ ejs渲染
-- http.http 接口测试文件，我个人觉得postman并没有.http文件好用，从方便上，同一个应用点文件测试快还是打开一个新应用快，有道理没？
-- 建模玩的还不够6，sequelize文档看了有四五遍了，先写一段时间代码，回头再看【学、思、练】
+
+- rotues/cookie、rotues/mail、rotues/role、rotues/user 基本上都是接口
+- rotues/session 接口+ ejs 渲染
+- http.http 接口测试文件，我个人觉得 postman 并没有.http 文件好用，从方便上，同一个应用点文件测试快还是打开一个新应用快，有道理没？
+- 建模玩的还不够 6，sequelize 文档看了有四五遍了，先写一段时间代码，回头再看【学、思、练】
 
 ```
 cnpm install --save sequelize
@@ -530,51 +533,60 @@ module.exports = RedisStore;
 <img src="https://github.com/841660202/node-sequelize-mysql/tree/main/screen/iShot2020-11-09 14.50.30.png" width="50%">
 
 ### 时间格式化
-- 在routes处理返回的数据会有sequelize乱七八糟的无用信息
-- 在model中get处理
+
+- 在 routes 处理返回的数据会有 sequelize 乱七八糟的无用信息
+- 在 model 中 get 处理
 
 ```js
-User.init({
+User.init(
+  {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING,
-    createdAt: {     //这里
+    createdAt: {
+      //这里
       type: DataTypes.DATE,
       get() {
-        return dayjs(this.getDataValue('createdAt')).format('YYYY-MM-DD HH:mm:ss');
-      }
+        return dayjs(this.getDataValue("createdAt")).format(
+          "YYYY-MM-DD HH:mm:ss"
+        );
+      },
     },
-    updatedAt: {     //这里
+    updatedAt: {
+      //这里
       type: DataTypes.DATE,
       get() {
-        return dayjs(this.getDataValue('updatedAt')).format('YYYY-MM-DD HH:mm:ss');
-      }
-    }
-  }, {
+        return dayjs(this.getDataValue("updatedAt")).format(
+          "YYYY-MM-DD HH:mm:ss"
+        );
+      },
+    },
+  },
+  {
     sequelize,
-    modelName: 'User',
+    modelName: "User",
     paranoid: true,
     // If you want to give a custom name to the deletedAt column
-    deletedAt: 'destroyTime',
+    deletedAt: "destroyTime",
     validate: {
       bothCoordsOrNone() {
-        console.log(this.roleId, "this.roleId ")
+        console.log(this.roleId, "this.roleId ");
         // if ((this.latitude === null) !== (this.longitude === null)) {
         //   throw new Error('Either both latitude and longitude, or neither!');
         // }
-        if (typeof this.roleId !== 'number') {
-          throw new Error('新建用户需要绑定角色!');
+        if (typeof this.roleId !== "number") {
+          throw new Error("新建用户需要绑定角色!");
         }
-      }
-    }
-  });
-
+      },
+    },
+  }
+);
 ```
 
 ### 字符串模版内嵌套 JSON.stringify 对于时间会出现引号错位
 
 - 数据将要被点击使用
-<img src="https://github.com/841660202/node-sequelize-mysql/tree/main/screen/iShot2020-11-09 16.18.56.png" width="50%">
+  <img src="https://github.com/841660202/node-sequelize-mysql/tree/main/screen/iShot2020-11-09 16.18.56.png" width="50%">
 
 ```js
 function handleRefresh() {
@@ -600,7 +612,8 @@ function handleRefresh() {
             </thead>`;
         const data = res.data;
         for (let i = 0; i < (data || []).length; i++) {
-          tpl += `
+          tpl +=
+            `
                 <tr>
                   <td>${data[i].lastName ? data[i].lastName : "---"}</td>
                   <td>${data[i].firstName ? data[i].firstName : "---"}</td>
@@ -611,9 +624,9 @@ function handleRefresh() {
                       ? '<td class="disable"> 停用</td> '
                       : '<td class="enable"> 启用</td>'
                   }
-                  <td> <a class="btn">编辑</a> <a class="btn" data-user=${JSON.stringify(
-                    data[i]
-                  )} onclick="handleEnable(this)">启/停用</a></td> <!--这里-->
+                  <td> <a class="btn">编辑</a> <a class="btn"  data-user='` +
+            JSON.stringify(data[i]) +
+            `'onclick="handleEnable(this)">启/停用</a></td> <!--这里 拼接 单引号，避免浏览器自动加双引号出问题-->
                 </tr>
                 `;
         }
