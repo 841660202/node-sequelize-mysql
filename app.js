@@ -4,19 +4,19 @@ const glob = require('glob')
 const path = require("path")
 const views = require('koa-views');
 const bodyParser = require('koa-bodyparser')
-
+const logger = require('./utils/loggerUtil')
 // logger
 app.use(async (ctx, next) => {
   await next();
   const rt = ctx.response.get('X-Response-Time');
-  console.log(`${ctx.method} ${ctx.url} - ${rt}`);
+  logger.info(`${ctx.method} ${ctx.url} - ${rt}`);
 });
 // filter
 const pageFilter = require('./filter/allowPage');
 //session拦截
 app.use(async (ctx, next) => {
   const res = await pageFilter(ctx)
-  console.log(res)
+  logger.info("session拦截",res ? '通过' : '不通过')
   await next()
 })
 // redis
