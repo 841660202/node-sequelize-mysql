@@ -3,7 +3,13 @@
 - mysql、cookie、sso(单站点登录)、redis、node、koa、nodemailer、dayjs、模版引擎（ejs、mustache）、爬虫（cheerio、Puppeteer）、断点续传、socket、token、sequelize、sequelize-cli、nodemon、vscode node 调试...碎片化学了好多也好久，没整合在一起使用过，这次试试水
 
 - 已用： mysql、cookie、redis、node、koa、nodemailer、dayjs、ejs、sequelize-cli、sequelize、nodemon、vscode node 调试
+- 本次学到了中间件【统一数据返回】、【校验信息】（ cookie校验及延长有效时间）
 - 待续：爬虫、断点续传
+
+### 文件夹说明
+- ./temp ./screen 为不重要文件夹，开发过程中备份或作其他用途
+- sevices为复杂业务代码书写文件夹
+- consts 为业务代码中需要的常量
 
 ### 项目说明
 
