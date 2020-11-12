@@ -4,21 +4,23 @@ const glob = require('glob')
 const path = require("path")
 const views = require('koa-views');
 const bodyParser = require('koa-bodyparser')
-const logger = require('./utils/loggerUtil')
+const {logger, httpLog} = require('./utils/loggerUtil')
+const allowRouter = require('./middleware/allowRouter');
+const response = require('./middleware/response');
+
 // logger
 app.use(async (ctx, next) => {
   await next();
   const rt = ctx.response.get('X-Response-Time');
-  logger.info(`${ctx.method} ${ctx.url} - ${rt}`);
+  httpLog.info(`${ctx.method} ${ctx.url} - ${rt}`)
+  if(ctx.method === "GET"){
+  }else{
+    httpLog.info(`${ctx.method} 参数: ${JSON.stringify(ctx.request.body)}`)
+  }
 });
-// filter
-const pageFilter = require('./filter/allowPage');
 //session拦截
-app.use(async (ctx, next) => {
-  const res = await pageFilter(ctx)
-  logger.info("session拦截",res ? '通过' : '不通过')
-  await next()
-})
+app.use(allowRouter())
+app.use(response())
 // redis
 const session = require("koa-session2");
 const Store = require("./utils/redisUtil"); //redis
@@ -30,9 +32,7 @@ app.use(session({
 
 const serve = require('koa-static')
 // 指定 public目录为静态资源目录，用来存放 js css images 等
-console.log(__dirname + "/public")
 app.use(serve(__dirname + "/public"))
-
 app.use(
   views("views", {
     map: {
@@ -41,10 +41,7 @@ app.use(
   })
 );
 
-
-
 app.use(bodyParser())
-
 
 // x-response-time
 app.use(async (ctx, next) => {

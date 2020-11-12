@@ -1,0 +1,112 @@
+[2020-11-12T13:46:07.862] [INFO] http - GET {}
+[2020-11-12T13:46:07.884] [INFO] http - GET /session/page/login - 12ms
+[2020-11-12T13:46:08.005] [INFO] http - GET {}
+[2020-11-12T13:46:08.008] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:46:08.516] [INFO] http - GET {}
+[2020-11-12T13:46:08.522] [INFO] http - GET /logo.png - 
+[2020-11-12T13:46:24.191] [INFO] http - POST undefined
+[2020-11-12T13:46:24.345] [INFO] http - POST /session/loginAction - 122ms
+[2020-11-12T13:46:24.380] [INFO] http - GET {}
+[2020-11-12T13:46:24.429] [INFO] http - GET /session/page/users - 23ms
+[2020-11-12T13:46:24.527] [INFO] http - GET {}
+[2020-11-12T13:46:24.561] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:47:46.465] [INFO] http - GET 参数: {}
+[2020-11-12T13:47:46.582] [INFO] http - GET /session/page/users - 94ms
+[2020-11-12T13:47:46.714] [INFO] http - GET 参数: {}
+[2020-11-12T13:47:46.733] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:47:53.220] [INFO] http - POST 参数: undefined
+[2020-11-12T13:47:53.277] [INFO] http - POST /session/view/users/enable - 43ms
+[2020-11-12T13:47:53.298] [INFO] http - GET 参数: {}
+[2020-11-12T13:47:53.311] [INFO] http - GET /session/view/users/data - 4ms
+[2020-11-12T13:48:06.592] [INFO] http - POST 参数: undefined
+[2020-11-12T13:48:06.611] [INFO] http - POST /session/view/users/enable - 13ms
+[2020-11-12T13:48:06.624] [INFO] http - GET 参数: {}
+[2020-11-12T13:48:06.641] [INFO] http - GET /session/view/users/data - 6ms
+[2020-11-12T13:49:24.460] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:24.461] [INFO] http - GET /session/page/users - 59ms
+[2020-11-12T13:49:24.581] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:24.581] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:49:30.584] [INFO] http - POST 参数: {"id":1,"status":0}
+[2020-11-12T13:49:30.584] [INFO] http - POST /session/view/users/enable - 25ms
+[2020-11-12T13:49:30.647] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:30.647] [INFO] http - GET /session/view/users/data - 6ms
+[2020-11-12T13:49:43.538] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:43.539] [INFO] http - GET /session/page/login - 2ms
+[2020-11-12T13:49:43.661] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:43.662] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:49:44.169] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:44.169] [INFO] http - GET /logo.png - 
+[2020-11-12T13:49:46.915] [INFO] http - POST 参数: {"email":"841660202@qq.com","password":"1","waitTime":""}
+[2020-11-12T13:49:46.916] [INFO] http - POST /session/loginAction - 19ms
+[2020-11-12T13:49:46.971] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:46.971] [INFO] http - GET /session/page/users - 12ms
+[2020-11-12T13:49:47.075] [INFO] http - GET 参数: {}
+[2020-11-12T13:49:47.075] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:50:31.854] [INFO] http - GET 参数: {}
+[2020-11-12T13:50:31.854] [INFO] http - GET /session/page/users - 13ms
+[2020-11-12T13:50:32.055] [INFO] http - GET 参数: {}
+[2020-11-12T13:50:32.055] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:50:50.285] [INFO] http - GET 参数: {"id":"1"}
+[2020-11-12T13:50:50.286] [INFO] http - GET /session/page/users?id=1 - 18ms
+[2020-11-12T13:50:50.421] [INFO] http - GET 参数: {}
+[2020-11-12T13:50:50.421] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:52:08.065] [INFO] http - GET /session/page/users?id=1 - 59ms
+[2020-11-12T13:52:08.065] [INFO] http - GET 参数: {"id":"1"}
+[2020-11-12T13:52:08.253] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:52:08.253] [INFO] http - GET 参数: {}
+[2020-11-12T13:52:21.611] [INFO] http - POST /session/view/users/enable - 20ms
+[2020-11-12T13:52:21.612] [INFO] http - POST 参数: {"id":1,"status":1}
+[2020-11-12T13:52:21.642] [INFO] http - GET /session/view/users/data - 4ms
+[2020-11-12T13:52:21.642] [INFO] http - GET 参数: {}
+[2020-11-12T13:53:08.479] [INFO] http - GET /session/page/users?id=1 - 62ms
+[2020-11-12T13:53:08.628] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T13:57:11.077] [INFO] http - GET /session/page/users?id=1 - 62ms
+[2020-11-12T13:57:11.281] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:00:23.834] [INFO] http - GET /session/page/users?id=1 - 91ms
+[2020-11-12T14:00:24.044] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:01:14.079] [INFO] http - GET /session/page/users?id=1 - 207ms
+[2020-11-12T14:01:14.249] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:02:16.628] [INFO] http - GET /session/page/users?id=1 - 88ms
+[2020-11-12T14:02:16.809] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:13:14.098] [INFO] http - GET /session/page/users?id=1 - 
+[2020-11-12T14:13:14.218] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:14:09.119] [INFO] http - GET /session/page/users?id=1 - 115ms
+[2020-11-12T14:14:09.270] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:21:30.324] [INFO] http - GET /session/page/users?id=1 - 87ms
+[2020-11-12T14:21:30.514] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:21:46.046] [INFO] http - GET /session/page/users?id=1 - 
+[2020-11-12T14:21:46.081] [INFO] http - GET /session/page/login - 5ms
+[2020-11-12T14:21:46.186] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:21:46.717] [INFO] http - GET /logo.png - 
+[2020-11-12T14:23:49.473] [INFO] http - GET /session/page/users - 
+[2020-11-12T14:23:49.514] [INFO] http - GET /session/page/login - 20ms
+[2020-11-12T14:23:49.560] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:23:51.567] [INFO] http - GET /logo.png - 
+[2020-11-12T14:25:46.801] [INFO] http - GET /session/page/login - 11ms
+[2020-11-12T14:25:46.979] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:25:47.478] [INFO] http - GET /logo.png - 
+[2020-11-12T14:26:36.562] [INFO] http - GET /session/page/login - 12ms
+[2020-11-12T14:26:36.733] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:26:37.279] [INFO] http - GET /logo.png - 
+[2020-11-12T14:27:10.201] [INFO] http - GET /session/page/login - 8ms
+[2020-11-12T14:27:10.366] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:27:10.877] [INFO] http - GET /logo.png - 
+[2020-11-12T14:27:58.980] [INFO] http - GET /session/page/login - 11ms
+[2020-11-12T14:27:59.106] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:27:59.630] [INFO] http - GET /logo.png - 
+[2020-11-12T14:29:47.914] [INFO] http - GET /session/page/login - 16ms
+[2020-11-12T14:29:48.022] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:29:48.605] [INFO] http - GET /logo.png - 
+[2020-11-12T14:30:04.669] [INFO] http - POST /session/loginAction - 88ms
+[2020-11-12T14:30:04.669] [INFO] http - POST 参数: {"email":"841660202@qq.com","password":"1","waitTime":""}
+[2020-11-12T14:30:04.728] [INFO] http - GET /session/page/users - 17ms
+[2020-11-12T14:30:04.872] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:31:49.901] [INFO] http - GET /session/page/users - 63ms
+[2020-11-12T14:31:50.130] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:31:53.891] [INFO] http - GET /session/page/users - 13ms
+[2020-11-12T14:31:54.007] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:35:22.635] [INFO] http - GET /session/page/users - 93ms
+[2020-11-12T14:35:22.786] [INFO] http - GET /js/ajax.js - 
+[2020-11-12T14:36:31.981] [INFO] http - GET /user/all - 91ms
+[2020-11-12T14:37:08.334] [INFO] http - GET /user/all - 100ms
+[2020-11-12T14:37:46.535] [INFO] http - GET /user/all - 74ms

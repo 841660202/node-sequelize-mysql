@@ -15,7 +15,9 @@ userRouter.get('/all', async (ctx, next) => {
   const res = await User.findAll({
     paranoid: parseInt(enable) === 1
   })
-  ctx.body = res
+  console.log(res)
+  // ctx.body = res
+  ctx.success(res)
 })
 userRouter.get('/all/by', async (ctx, next) => {
   const { enable } = ctx.query // 传进来的是字符串

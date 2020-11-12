@@ -1,0 +1,211 @@
+[2020-11-12T11:40:44.807] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:40:44.809] [INFO] default - login status validate success
+[2020-11-12T11:40:44.810] [INFO] default - session拦截 通过
+[2020-11-12T11:40:44.891] [INFO] default - GET /session/page/users - 71ms
+[2020-11-12T11:40:44.962] [INFO] default - 当前地址可直接访问
+[2020-11-12T11:40:44.963] [INFO] default - session拦截 通过
+[2020-11-12T11:40:44.978] [INFO] default - GET /js/ajax.js - 
+[2020-11-12T11:40:48.597] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:40:48.600] [INFO] default - login status validate success
+[2020-11-12T11:40:48.600] [INFO] default - session拦截 通过
+[2020-11-12T11:40:48.619] [INFO] default - GET /session/page/users - 13ms
+[2020-11-12T11:40:48.687] [INFO] default - 当前地址可直接访问
+[2020-11-12T11:40:48.688] [INFO] default - session拦截 通过
+[2020-11-12T11:40:48.704] [INFO] default - GET /js/ajax.js - 
+[2020-11-12T11:45:27.586] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:45:27.588] [INFO] default - login status validate success
+[2020-11-12T11:45:27.589] [INFO] default - session拦截 通过
+[2020-11-12T11:45:27.702] [INFO] default - GET /session/page/users - 90ms
+[2020-11-12T11:45:27.873] [INFO] default - 当前地址可直接访问
+[2020-11-12T11:45:27.873] [INFO] default - session拦截 通过
+[2020-11-12T11:45:27.886] [INFO] default - GET /js/ajax.js - 
+[2020-11-12T11:53:20.718] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:53:20.721] [INFO] default - login status validate success
+[2020-11-12T11:53:20.722] [INFO] default - session拦截 通过
+[2020-11-12T11:53:20.845] [INFO] default - GET /session/page/users - 108ms
+[2020-11-12T11:53:21.041] [INFO] default - 当前地址可直接访问
+[2020-11-12T11:53:21.042] [INFO] default - session拦截 通过
+[2020-11-12T11:53:21.094] [INFO] default - GET /js/ajax.js - 
+[2020-11-12T11:53:25.445] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:53:25.447] [INFO] default - login status validate success
+[2020-11-12T11:53:25.447] [INFO] default - session拦截 通过
+[2020-11-12T11:53:25.502] [INFO] default - POST /session/view/users/enable - 31ms
+[2020-11-12T11:53:25.560] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:53:25.562] [INFO] default - login status validate success
+[2020-11-12T11:53:25.562] [INFO] default - session拦截 通过
+[2020-11-12T11:53:25.575] [INFO] default - GET /session/view/users/data - 7ms
+[2020-11-12T11:53:28.229] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:53:28.230] [INFO] default - login status validate success
+[2020-11-12T11:53:28.230] [INFO] default - session拦截 通过
+[2020-11-12T11:53:28.243] [INFO] default - POST /session/view/users/enable - 6ms
+[2020-11-12T11:53:28.289] [INFO] default - 有效请求，刷新redis时间:eb4998f825e1cf856c73cbd4485a7d043b2c80efc68bdbc4
+[2020-11-12T11:53:28.291] [INFO] default - login status validate success
+[2020-11-12T11:53:28.291] [INFO] default - session拦截 通过
+[2020-11-12T11:53:28.300] [INFO] default - GET /session/view/users/data - 3ms
+[2020-11-12T13:38:43.235] [WARN] app - login status validate fail
+[2020-11-12T13:38:43.236] [INFO] app - /session/page/user/add
+[2020-11-12T13:38:43.242] [INFO] app - session拦截 不通过
+[2020-11-12T13:38:43.545] [INFO] app - GET /session/page/user/add - 293ms
+[2020-11-12T13:38:43.561] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:38:43.562] [INFO] app - session拦截 通过
+[2020-11-12T13:38:43.571] [INFO] app - GET /session/page/login - 4ms
+[2020-11-12T13:38:43.722] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:38:43.723] [INFO] app - session拦截 通过
+[2020-11-12T13:38:43.737] [INFO] app - GET /js/ajax.js - 
+[2020-11-12T13:38:44.260] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:38:44.263] [INFO] app - session拦截 通过
+[2020-11-12T13:38:44.265] [INFO] app - GET /logo.png - 
+[2020-11-12T13:46:07.865] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:46:07.867] [INFO] app - session拦截 通过
+[2020-11-12T13:46:08.005] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:46:08.006] [INFO] app - session拦截 通过
+[2020-11-12T13:46:08.519] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:46:08.520] [INFO] app - session拦截 通过
+[2020-11-12T13:46:24.191] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:46:24.192] [INFO] app - session拦截 通过
+[2020-11-12T13:46:24.384] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:46:24.388] [INFO] app - login status validate success
+[2020-11-12T13:46:24.388] [INFO] app - session拦截 通过
+[2020-11-12T13:46:24.528] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:46:24.528] [INFO] app - session拦截 通过
+[2020-11-12T13:47:46.472] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:47:46.474] [INFO] app - login status validate success
+[2020-11-12T13:47:46.474] [INFO] app - session拦截 通过
+[2020-11-12T13:47:46.714] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:47:46.715] [INFO] app - session拦截 通过
+[2020-11-12T13:47:53.223] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:47:53.223] [INFO] app - login status validate success
+[2020-11-12T13:47:53.224] [INFO] app - session拦截 通过
+[2020-11-12T13:47:53.302] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:47:53.303] [INFO] app - login status validate success
+[2020-11-12T13:47:53.303] [INFO] app - session拦截 通过
+[2020-11-12T13:48:06.593] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:48:06.594] [INFO] app - login status validate success
+[2020-11-12T13:48:06.594] [INFO] app - session拦截 通过
+[2020-11-12T13:48:06.626] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:48:06.627] [INFO] app - login status validate success
+[2020-11-12T13:48:06.627] [INFO] app - session拦截 通过
+[2020-11-12T13:49:24.391] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:49:24.394] [INFO] app - login status validate success
+[2020-11-12T13:49:24.395] [INFO] app - session拦截 通过
+[2020-11-12T13:49:24.573] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:49:24.576] [INFO] app - session拦截 通过
+[2020-11-12T13:49:30.535] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:49:30.537] [INFO] app - login status validate success
+[2020-11-12T13:49:30.537] [INFO] app - session拦截 通过
+[2020-11-12T13:49:30.634] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:49:30.635] [INFO] app - login status validate success
+[2020-11-12T13:49:30.635] [INFO] app - session拦截 通过
+[2020-11-12T13:49:43.533] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:49:43.534] [INFO] app - session拦截 通过
+[2020-11-12T13:49:43.658] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:49:43.658] [INFO] app - session拦截 通过
+[2020-11-12T13:49:44.156] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:49:44.156] [INFO] app - session拦截 通过
+[2020-11-12T13:49:46.894] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:49:46.894] [INFO] app - session拦截 通过
+[2020-11-12T13:49:46.949] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:49:46.951] [INFO] app - login status validate success
+[2020-11-12T13:49:46.951] [INFO] app - session拦截 通过
+[2020-11-12T13:49:47.068] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:49:47.069] [INFO] app - session拦截 通过
+[2020-11-12T13:50:31.829] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:50:31.830] [INFO] app - login status validate success
+[2020-11-12T13:50:31.830] [INFO] app - session拦截 通过
+[2020-11-12T13:50:32.051] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:50:32.052] [INFO] app - session拦截 通过
+[2020-11-12T13:50:50.263] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:50:50.264] [INFO] app - login status validate success
+[2020-11-12T13:50:50.264] [INFO] app - session拦截 通过
+[2020-11-12T13:50:50.415] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:50:50.416] [INFO] app - session拦截 通过
+[2020-11-12T13:52:07.995] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:52:07.998] [INFO] app - login status validate success
+[2020-11-12T13:52:07.998] [INFO] app - session拦截 通过
+[2020-11-12T13:52:08.179] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:52:08.180] [INFO] app - session拦截 通过
+[2020-11-12T13:52:21.578] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:52:21.578] [INFO] app - login status validate success
+[2020-11-12T13:52:21.579] [INFO] app - session拦截 通过
+[2020-11-12T13:52:21.630] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:52:21.631] [INFO] app - login status validate success
+[2020-11-12T13:52:21.631] [INFO] app - session拦截 通过
+[2020-11-12T13:53:08.406] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:53:08.409] [INFO] app - login status validate success
+[2020-11-12T13:53:08.409] [INFO] app - session拦截 通过
+[2020-11-12T13:53:08.612] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:53:08.613] [INFO] app - session拦截 通过
+[2020-11-12T13:57:11.001] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T13:57:11.005] [INFO] app - login status validate success
+[2020-11-12T13:57:11.006] [INFO] app - session拦截 通过
+[2020-11-12T13:57:11.249] [INFO] app - 当前地址可直接访问
+[2020-11-12T13:57:11.250] [INFO] app - session拦截 通过
+[2020-11-12T14:00:23.714] [INFO] app - 有效请求，刷新redis时间:1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T14:00:23.718] [INFO] app - login status validate success
+[2020-11-12T14:00:23.718] [INFO] app - session拦截 通过
+[2020-11-12T14:00:23.965] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:00:24.011] [INFO] app - session拦截 通过
+[2020-11-12T14:01:13.846] [INFO] app - 有效请求，刷新redis时间, SESSIONID=1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T14:01:13.856] [INFO] app - login status validate success
+[2020-11-12T14:01:13.856] [INFO] app - session拦截 通过
+[2020-11-12T14:01:14.244] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:01:14.245] [INFO] app - session拦截 通过
+[2020-11-12T14:02:16.520] [INFO] app - 有效请求，刷新redis时间, SESSIONID=1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T14:02:16.522] [INFO] app - login status validate success
+[2020-11-12T14:02:16.525] [INFO] app - session拦截 通过
+[2020-11-12T14:02:16.753] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:02:16.791] [INFO] app - session拦截 通过
+[2020-11-12T14:13:14.003] [INFO] app - 有效请求，刷新redis时间, SESSIONID=1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T14:13:14.005] [INFO] app - login status validate success
+[2020-11-12T14:13:14.008] [INFO] app - session拦截 通过
+[2020-11-12T14:13:14.199] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:13:14.200] [INFO] app - session拦截 通过
+[2020-11-12T14:14:08.991] [INFO] app - 有效请求，刷新redis时间, SESSIONID=1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T14:14:08.993] [INFO] app - login status validate success
+[2020-11-12T14:14:08.995] [INFO] app - session拦截 通过
+[2020-11-12T14:14:09.261] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:14:09.263] [INFO] app - session拦截 通过
+[2020-11-12T14:21:30.209] [INFO] app - 有效请求，刷新redis时间, SESSIONID=1683caa09569f0d99ce191a399da2fed41f28c838f07b520
+[2020-11-12T14:21:30.211] [INFO] app - login status validate success
+[2020-11-12T14:21:30.481] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:21:46.043] [WARN] app - login status validate fail
+[2020-11-12T14:21:46.043] [INFO] app - /session/page/users?id=1
+[2020-11-12T14:21:46.066] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:21:46.183] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:21:46.715] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:23:49.446] [WARN] app - login status validate fail
+[2020-11-12T14:23:49.450] [INFO] app - /session/page/users
+[2020-11-12T14:23:49.486] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:23:49.556] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:23:51.562] [INFO] app - 当前地址可直接访问
+[2020-11-12T14:25:46.773] [INFO] app - allow url...
+[2020-11-12T14:25:46.977] [INFO] app - allow url...
+[2020-11-12T14:25:47.474] [INFO] app - allow url...
+[2020-11-12T14:27:10.184] [INFO] app - direct pass
+[2020-11-12T14:27:10.363] [INFO] app - direct pass
+[2020-11-12T14:27:10.872] [INFO] app - direct pass
+[2020-11-12T14:27:58.960] [INFO] app - direct pass
+[2020-11-12T14:27:59.102] [INFO] app - direct pass
+[2020-11-12T14:27:59.625] [INFO] app - direct pass
+[2020-11-12T14:29:47.883] [INFO] app - 无需校验资源
+[2020-11-12T14:29:48.020] [INFO] app - 无需校验资源
+[2020-11-12T14:29:48.601] [INFO] app - 无需校验资源
+[2020-11-12T14:30:04.552] [INFO] app - 无需校验资源
+[2020-11-12T14:30:04.703] [INFO] app - valid req, refresh redis, SESSIONID=dadddd34f8723a1a986d3cd8bb8664f124ae122a3af78ec5
+[2020-11-12T14:30:04.704] [INFO] app - login status validate success
+[2020-11-12T14:30:04.816] [INFO] app - 无需校验资源
+[2020-11-12T14:31:49.825] [INFO] app - valid req, refresh redis, SESSIONID=dadddd34f8723a1a986d3cd8bb8664f124ae122a3af78ec5
+[2020-11-12T14:31:49.827] [INFO] app - login status validate success
+[2020-11-12T14:31:50.113] [INFO] app - 无需校验资源
+[2020-11-12T14:31:53.873] [INFO] app - valid req, refresh redis, SESSIONID=dadddd34f8723a1a986d3cd8bb8664f124ae122a3af78ec5
+[2020-11-12T14:31:53.874] [INFO] app - login status validate success
+[2020-11-12T14:31:53.971] [INFO] app - 无需校验资源
+[2020-11-12T14:35:22.524] [INFO] app - valid req, refresh redis, SESSIONID=dadddd34f8723a1a986d3cd8bb8664f124ae122a3af78ec5
+[2020-11-12T14:35:22.526] [INFO] app - login status validate success
+[2020-11-12T14:35:22.762] [INFO] app - 无需校验资源
+[2020-11-12T14:36:31.874] [INFO] app - valid req, refresh redis, SESSIONID=dadddd34f8723a1a986d3cd8bb8664f124ae122a3af78ec5
+[2020-11-12T14:36:31.876] [INFO] app - login status validate success
+[2020-11-12T14:37:08.207] [INFO] app - valid req, refresh redis, SESSIONID=dadddd34f8723a1a986d3cd8bb8664f124ae122a3af78ec5
+[2020-11-12T14:37:08.209] [INFO] app - login status validate success
+[2020-11-12T14:37:46.449] [INFO] app - valid req, refresh redis, SESSIONID=dadddd34f8723a1a986d3cd8bb8664f124ae122a3af78ec5
+[2020-11-12T14:37:46.451] [INFO] app - login status validate success

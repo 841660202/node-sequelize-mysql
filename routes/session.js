@@ -24,7 +24,6 @@ sessionRouter.post('/loginAction', async (ctx, next) => {
         }
       }
     })
-    console.log(userInfo)
     if (!userInfo) {
       ctx.body = {
         code: '000000',
@@ -34,8 +33,6 @@ sessionRouter.post('/loginAction', async (ctx, next) => {
     }
     await delay(waiting || 0)
     ctx.session.uid = JSON.stringify(userInfo.id);
-
-    console.log("延迟")
     ctx.body = {
       code: '000000',
       data: true,
