@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>用户：<%=code %></h3>
+    <button id="sendCode">登陆</button>
+    <button id="sendCancel">拒绝</button>
+    <script>
+        const code = '<%=code %>';
+        const sendCodeBtn = document.getElementById("sendCode");
+        const sendCancelBtn = document.getElementById("sendCancel");
+        const confirmScan = function (f, fun) {
+            fetch("/scan/confirm/scan", {
+                method: "POST",
+                credentials: 'include',
+                body: JSON.stringify({ confirm: f, code }),
+                headers: { "content-type": "application/json" }
+            }).then(v => v.json()).then(v => {
+                fun(v);
+            });
+        };
+        sendCodeBtn.onclick = function () {
+            confirmScan(true, function (d) {
+                alert("确定成功");
+                setTimeout(function(){location.href="/scan/page/app_home";},1000);
+            });
+        };
+        sendCancelBtn.onclick = function () {
+            confirmScan(false, function (d) {
+                alert("拒绝");
+                setTimeout(function(){location.href="/scan/page/app_home";},1000); 
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title></title>
+  <script src="/js/jsQR.js"></script>
+  <style>
+    #canvas{
+      background-color: #fff;
+      box-shadow: 0px 0px 3px #1890ff;
+      margin-top: 16px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Hello <%=email %> <a href="/scan/onlogout">退出登陆</a> </h3>
+  <div>
+    <input id="cameraInput" type="file" accept="image/*" capture="camera">
+    <div id="outputMessage" style="width:200px;font-size:10px"></div>
+    <canvas id="canvas"></canvas>
+  </div>
+  </div>
+  <br />
+  <br />
+
+  <script>
+    const cameraInput = document.getElementById("cameraInput");
+    const outputMessage = document.getElementById("outputMessage");
+    const canvasElement = document.getElementById("canvas");
+
+    const canvas = canvasElement.getContext("2d");
+    canvasElement.height = 200;
+    canvasElement.width = 200;
+    cameraInput.onchange = function () {
+      if (this.files.length != 1) return;
+      let file = this.files[0];
+      let url = URL.createObjectURL(file);
+      let cameraShow = new Image();
+      cameraShow.onload = function () {
+        canvas.drawImage(this, 0, 0, canvasElement.width, canvasElement.height);
+        let imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        URL.revokeObjectURL(this.src);
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert",
+        });
+        if (code) {
+          outputMessage.innerHTML = `扫描结果：<a href="${code.data}">${code.data}</a>`;
+          window.location = `/scan/page/auth?code=${code.data}`;
+        } else {
+          outputMessage.innerHTML = "无扫描结果";
+        }
+      };
+      cameraShow.src = url;
+    }; 
+  </script>
+</body>
+
+</html>

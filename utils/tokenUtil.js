@@ -1,11 +1,9 @@
 const Redis = require("ioredis");
-const { Store } = require("koa-session2");
  /**
   * redis存储
   */
-class RedisStore extends Store {
+class TokenStore {
     constructor() {
-        super();
         this.redis = new Redis();
     }
     /**
@@ -14,7 +12,7 @@ class RedisStore extends Store {
      * @param {*} ctx 
      */
     async get(sid, ctx) {
-        let data = await this.redis.get(`SESSION:${sid}`);
+        let data = await this.redis.get(`${sid}`);
         return JSON.parse(data);
     }
     /**
@@ -23,11 +21,11 @@ class RedisStore extends Store {
      * @param {*} param1 
      * @param {*} ctx 
      */
-    async set(session, { sid =  this.getID(24), maxAge = 1000 * 60 * 60 } = {}, ctx) {
+    async set(session, { sid, maxAge = 1000 * 60 * 60 } = {}, ctx) {
         try {
-            console.log(`SESSION:${sid}`);
+            console.log(`${sid}`);
             // Use redis set EX to automatically drop expired sessions
-            await this.redis.set(`SESSION:${sid}`, JSON.stringify(session), 'EX', maxAge / 1000);
+            await this.redis.set(`${sid}`, JSON.stringify(session), 'EX', maxAge / 1000);
         } catch (e) {}
         return sid;
     }
@@ -40,9 +38,9 @@ class RedisStore extends Store {
      */
     async refresh(sid, session, maxAge = 1000 * 60 * 60, ctx) {
         try {
-            console.log(`SESSION:${sid}`);
+            console.log(`${sid}`);
             // Use redis set EX to automatically drop expired sessions
-            await this.redis.set(`SESSION:${sid}`, JSON.stringify(session), 'EX', maxAge / 1000);
+            await this.redis.set(`${sid}`, JSON.stringify(session), 'EX', maxAge / 1000);
         } catch (e) {}
         return sid;
     }
@@ -52,8 +50,8 @@ class RedisStore extends Store {
      * @param {*} ctx 
      */
     async destroy(sid, ctx) {
-        return await this.redis.del(`SESSION:${sid}`);
+        return await this.redis.del(`${sid}`);
     }
 }
  
-module.exports = RedisStore;
+module.exports = new TokenStore();

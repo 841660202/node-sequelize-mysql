@@ -7,7 +7,7 @@ const bodyParser = require('koa-bodyparser')
 const {logger, httpLog} = require('./utils/loggerUtil')
 const allowRouter = require('./middleware/allowRouter');
 const response = require('./middleware/response');
-
+app.keys = ['im a newer secret', 'i like turtle'];
 // logger
 app.use(async (ctx, next) => {
   await next();
